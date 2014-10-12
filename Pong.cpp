@@ -34,7 +34,6 @@ void wallLines();
 void setColor(tColor color);
 void displayCourt(const tCourt &court);
 
-
 int main() {
 
 	int option, roundWinner;
@@ -50,8 +49,7 @@ int main() {
 		initializeScore(game.score); // Initialize the score to 0
 		game.court = initializeCourt(); // Set the initial Court
 
-		while ((!finish) && (!won))
-		{
+		do {
 			system("cls");
 			displayScore(game.score);
 			displayCourt(game.court);
@@ -60,7 +58,7 @@ int main() {
 			updateCourt(game.court); // //Updates the court after calling the update functions on each component
 
 			/***
-			**** (Esto debe de incluirse en Court) Comprueba si ha ganado el punto alguno de los dos jugadores 
+			**** (Esto debe de incluirse en Court) Comprueba si ha ganado el punto alguno de los dos jugadores
 			****/
 			int i = 0;
 			bool roundWin = false; // no one wins
@@ -80,11 +78,7 @@ int main() {
 
 			won = updateScore(game.score, roundWinner);
 
-			if ((!won) && (roundWinner != -1)) {
-				// Round won, reset the board
-				game.court = initializeCourt();
-			}
-			else if (won) 
+			if (won)
 			{
 				system("cls");
 
@@ -95,7 +89,10 @@ int main() {
 					cout << "The player 2 wons the game";
 				}
 			}
-		}
+			else if ((!won) && (roundWinner != -1)) {
+				game.court = initializeCourt(); // Won round, reset the board
+			}
+		} while ((!finish) && (!won));
 
 		break;
 	case 2:
