@@ -34,7 +34,7 @@ tInput keyBoardInput() {
 	return input;
 }
 
-void tranfsformInput(tMovement &player1Move, tMovement &player2Move, bool &service) {
+void transformInput(tMovement &player1Move, tMovement &player2Move, bool &service) {
 	tInput input = keyBoardInput();
 
 	if (input.keysBeingPressed[0])
