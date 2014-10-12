@@ -16,7 +16,7 @@ typedef struct
 } tScore;
 
 void initializeScore(tScore &score);
-bool updateScore(tScore &score, int winner);
+bool updateScore(tScore &score, int roundWinner);
 void displayScore(tScore score);
 
 #endif
