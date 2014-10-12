@@ -52,6 +52,7 @@ int main() {
 
 		while ((!finish) && (!won))
 		{
+			system("cls");
 			displayScore(game.score);
 			displayCourt(game.court);
 
@@ -83,6 +84,17 @@ int main() {
 				// Round won, reset the board
 				game.court = initializeCourt();
 			}
+			else if (won) 
+			{
+				system("cls");
+
+				if (game.score.player1 == MAX_ROUNDS) {
+					cout << "The player 1 wons the game";
+				}
+				else {
+					cout << "The player 2 wons the game";
+				}
+			}
 		}
 
 		break;
@@ -112,7 +124,8 @@ int menu()
 }
 
 void displayCourt(const tCourt &court) {
-	
+
+	setColor(white);
 	wallLines(); // Top Walls
 
 	for (int i = 0; i < COURT_WIDTH; i++) {
@@ -135,7 +148,7 @@ void displayCourt(const tCourt &court) {
 			}
 		}
 	}
-
+	setColor(white);
 	wallLines();
 }
 
