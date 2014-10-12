@@ -25,7 +25,7 @@ typedef struct {
 
 tPlayers resetPlayers();
 tInput keyBoardInput();
-void tranfsformInput(tMovement &player1Move, tMovement &player2Move, bool &service);
+void transformInput(tMovement &player1Move, tMovement &player2Move, bool &service);
 tPlayers movePlayers(tPlayers players);
 
 #endif
